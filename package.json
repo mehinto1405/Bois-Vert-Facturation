@@ -1,0 +1,9 @@
+{
+  "name": "boisvert-facturation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Challenge CTF web (hard) — confusion d'algorithme JWT, SSRF, pollution de prototype",
+  "main": "app.js",
+  "scripts": { "start": "node app.js" },
+  "dependencies": { "express": "4.18.2" }
+}
