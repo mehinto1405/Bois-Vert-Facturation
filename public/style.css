@@ -1,0 +1,19 @@
+:root{--encre:#1b2a1f;--papier:#f6f4ee;--vert:#2f5d3a;--vert-clair:#7ea582;--bord:#d9d4c6;--alerte:#8c2f2f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papier);color:var(--encre);font:16px/1.6 Georgia,"Times New Roman",serif}
+.bandeau{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.5rem;background:var(--vert);color:#fff;flex-wrap:wrap}
+.marque{color:#fff;text-decoration:none;font-size:1.3rem}
+.bandeau nav a{color:#dbe7dc;text-decoration:none;margin-left:1.2rem}
+.bandeau nav a:hover{color:#fff;text-decoration:underline}
+.page{max-width:54rem;margin:0 auto;padding:2rem 1.5rem}
+h1{font-size:1.8rem;margin:0 0 .6rem}
+code{background:#eae6da;padding:.1rem .35rem;border-radius:2px;font-size:.92em}
+.liste{padding-left:1.1rem}
+.formulaire{max-width:22rem}
+.formulaire label{display:block;margin:.9rem 0 .25rem}
+.formulaire input{width:100%;padding:.5rem;border:1px solid var(--bord);background:#fff;font:inherit}
+.formulaire button{margin-top:1.2rem;padding:.55rem 1.4rem;border:0;background:var(--vert);color:#fff;font:inherit;cursor:pointer}
+.erreur{color:var(--alerte)}
+.note{color:#5a6a5c;font-size:.9rem}
+.pied{border-top:1px solid var(--bord);padding:1.5rem;text-align:center;color:#5a6a5c;font-size:.9rem}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--vert-clair);outline-offset:2px}
