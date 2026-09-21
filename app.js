@@ -185,18 +185,11 @@ app.get('/espace', (req, res) => {
 function jwk(key) {
   const k = crypto.createPublicKey(key.pem).export({ format: 'jwk' });
   return { kty: k.kty, n: k.n, e: k.e, alg: 'RS256', use: 'sig', kid: key.kid,
-           statut: key.actif ? 'actif' : 'retire',
-           pem: `/.well-known/keys/${key.kid}.pem` };
+           statut: key.actif ? 'actif' : 'retire' };
 }
 app.get('/.well-known/jwks.json', (req, res) => {
   res.json({ keys: Object.values(KEYS).map(jwk) });
 });
-app.get('/.well-known/keys/:kid.pem', (req, res) => {
-  const key = KEYS[req.params.kid];
-  if (!key) return res.status(404).type('text/plain').send('cle inconnue');
-  res.type('application/x-pem-file').send(key.pem);
-});
-
 // ------------------------------------------------------- Generation facture
 // Le logo est recupere cote serveur. Le filtre compare la chaine de l'URL.
 const INTERDITS = ['localhost', '127.0.0.1'];
@@ -208,7 +201,7 @@ app.get('/compta/facture', (req, res) => {
   const cible = String(req.query.logo || '');
   if (!cible) return res.status(400).json({ error: 'parametre logo manquant' });
   if (INTERDITS.some((mot) => cible.includes(mot))) {
-    return res.status(400).json({ error: 'hote interdit', interdits: INTERDITS });
+    return res.status(400).json({ error: 'hote interdit' });
   }
 
   let u;
